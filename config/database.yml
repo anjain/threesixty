@@ -19,7 +19,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: threexixty_prod
+  database: threexixty_dev
   pool: 5
   username: root
   password: root

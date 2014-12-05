@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
+
+  # devise_for :users
+  # as :user do
+  #   get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
+  #   post 'sign_in', to: 'sessions#create', as: :user_session
+  #   get 'sign_out', to: 'sessions#destroy', as: :destroy_user_session
+  #   get 'unblock', to: 'unlocks#show', as: :user_unlock
+  # end
+
+  devise_for :users, skip: [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', as: :new_user_session
+    post 'signin' => 'devise/sessions#create', as: :user_session
+    get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
